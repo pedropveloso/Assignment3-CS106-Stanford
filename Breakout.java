@@ -1,7 +1,7 @@
 /*
  * File: Breakout.java
  * -------------------
- * Name:
+ * Name:Pedro
  * Section Leader:
  * 
  * This file will eventually implement the game of Breakout.
@@ -60,7 +60,19 @@ public class Breakout extends GraphicsProgram {
 /* Method: run() */
 /** Runs the Breakout program. */
 	public void run() {
-		/* You fill this in, along with any subsidiary methods */
+		setup();
+		play();
 	}
 
+	private void setup() {
+		setUpBricks();
+		setUpPaddle();
+	}
+	
+	private void setUpBricks() {
+		for (i=0; i<NBRICK_ROWS; i++) {
+			
+		}
+	}
+	
 }
