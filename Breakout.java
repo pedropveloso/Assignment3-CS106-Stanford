@@ -145,7 +145,6 @@ public class Breakout extends GraphicsProgram {
 		if (ball == null && turn < NTURNS) {
 			ball = new GOval (2*BALL_RADIUS, 2*BALL_RADIUS);
 			ball.setFilled(true);
-			ball.setColor(Color.GREEN);
 			add (ball, getWidth() / 2 - BALL_RADIUS, getHeight() / 2 - BALL_RADIUS);
 			vx = rgen.nextDouble(1.0, 3.0);
 			if (rgen.nextBoolean(0.5)) vx=-vx;
