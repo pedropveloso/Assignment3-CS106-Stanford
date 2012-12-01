@@ -57,7 +57,7 @@ public class Breakout extends GraphicsProgram {
 	private static final int BRICK_HEIGHT = 8;
 
 /** Radius of the ball in pixels */
-	private static final int BALL_RADIUS = 8;
+	private static final int BALL_RADIUS = 5;
 
 /** Offset of the top brick row from the top */
 	private static final int BRICK_Y_OFFSET = 70;
