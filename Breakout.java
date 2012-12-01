@@ -113,7 +113,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void play() {
-		movePaddle();
+		//movePaddle();
 		label = new GLabel("");
 		add (label, 50, 50);
 	}
