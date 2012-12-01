@@ -18,8 +18,8 @@ import java.awt.event.*;
 public class Breakout extends GraphicsProgram {
 
 /** Width and height of application window in pixels */
-	public static final int APPLICATION_WIDTH = 600;
-	public static final int APPLICATION_HEIGHT = 900;
+	public static final int APPLICATION_WIDTH = 400;
+	public static final int APPLICATION_HEIGHT = 600;
 
 /** Dimensions of game board (usually the same) */
 	private static final int WIDTH = APPLICATION_WIDTH;
@@ -106,6 +106,7 @@ public class Breakout extends GraphicsProgram {
 	
 	private void setUpPaddle() {
 		GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
+		paddle.setFilled(true);
 		xPaddle = (WIDTH - PADDLE_WIDTH) / 2;
 		add (paddle, xPaddle, yPaddle);
 	}
