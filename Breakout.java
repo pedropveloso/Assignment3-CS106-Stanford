@@ -15,6 +15,8 @@ import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import javax.swing.JButton;
+
 public class Breakout extends GraphicsProgram {
 
 /** Width and height of application window in pixels */
@@ -41,12 +43,15 @@ public class Breakout extends GraphicsProgram {
 /** Number of rows of bricks */
 	private static final int NBRICK_ROWS = 10;
 	
+/** Total number of bricks */
+	private static final int TOTAL_BRICKS = NBRICKS_PER_ROW * NBRICK_ROWS;
+	
 /** Separation between bricks */
 	private static final int BRICK_SEP = 4;
 
 /** Width of a brick */
 	private static final int BRICK_WIDTH =
-	  (WIDTH - (NBRICKS_PER_ROW - 1) * BRICK_SEP) / NBRICKS_PER_ROW;
+	  (WIDTH - (NBRICKS_PER_ROW + 1) * BRICK_SEP) / NBRICKS_PER_ROW;
 
 /** Height of a brick */
 	private static final int BRICK_HEIGHT = 8;
@@ -59,6 +64,9 @@ public class Breakout extends GraphicsProgram {
 
 /** Number of turns */
 	private static final int NTURNS = 3;
+	
+/** Animation cycle delay */
+	private static final int DELAY = 10;	
 
 /* Method: run() */
 /** Runs the Breakout program. */
@@ -70,6 +78,12 @@ public class Breakout extends GraphicsProgram {
 	private void setup() {
 		setUpBricks();
 		setUpPaddle();
+	}
+	
+	public void init() {
+		add(new JButton ("Shoot!"), SOUTH);
+		addMouseListeners();
+		addActionListeners();
 	}
 	
 	private void setUpBricks() {
@@ -109,7 +123,6 @@ public class Breakout extends GraphicsProgram {
 		paddle.setFilled(true);
 		xPaddle = (WIDTH - PADDLE_WIDTH) / 2;
 		add (paddle, xPaddle, yPaddle);
-		addMouseListeners();
 	}
 	
 	public void mouseMoved (MouseEvent e) {
@@ -128,15 +141,41 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
+	public void actionPerformed (ActionEvent e) {
+		if (ball == null && turn < NTURNS) {
+			ball = new GOval (2*BALL_RADIUS, 2*BALL_RADIUS);
+			ball.setFilled(true);
+			ball.setColor(Color.GREEN);
+			add (ball, getWidth() / 2, getHeight() / 2);
+		}
+	}
+	
 	private void play() {
-		
+		while (!gameOver()) {
+			moveBall();
+		//	checkForCollision();
+			pause(DELAY);
+		}
 	}
 
+	private boolean gameOver() {
+		return (win) || (loose);
+	}
+	
+	private void moveBall() {
+		if (ball!=null) {
+			
+		}
+	}
 	
 
 /* Private instance variables */
 	private GRect paddle;
 	private int xPaddle;
 	private int yPaddle = Y_PADDLE;
-	
+	private int points = 0; //number of bricks destroyed
+	private int turn;
+	private GOval ball;
+	private boolean win; //true when all the bricks are destroyed
+	private boolean loose; //true when the player looses the 3 lives
 }
