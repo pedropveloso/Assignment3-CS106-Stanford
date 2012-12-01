@@ -64,7 +64,7 @@ public class Breakout extends GraphicsProgram {
 /** Runs the Breakout program. */
 	public void run() {
 		setup();
-	//	play();
+		play();
 	}
 
 	private void setup() {
@@ -105,7 +105,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void setUpPaddle() {
-		GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
+		paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		xPaddle = (WIDTH - PADDLE_WIDTH) / 2;
 		add (paddle, xPaddle, yPaddle);
@@ -115,8 +115,19 @@ public class Breakout extends GraphicsProgram {
 	public void mouseMoved (MouseEvent e) {
 		xPaddle = e.getX();
 	}
+	
+	private void play() {
+		movePaddle();
+			
+	}
+	
+	private void movePaddle() {
+		double dx = paddle.getX() - xPaddle;
+		paddle.move(dx, 0);
+	}
 
 /* Private instance variables */
+	GRect paddle;
 	int xPaddle;
 	int yPaddle = Y_PADDLE;
 	
