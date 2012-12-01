@@ -70,8 +70,8 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void setUpBricks() {
+		int y = BRICK_Y_OFFSET;
 		for (int i=0; i<NBRICK_ROWS; i++) {
-			int y = BRICK_Y_OFFSET;
 			Color rowColor = Color.WHITE;
 			switch(i) {
 			case 0 : rowColor = Color.RED; break;
@@ -91,8 +91,8 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void setBrickRow (int y, Color color) {
+		int x = (WIDTH - (NBRICKS_PER_ROW * BRICK_WIDTH)) / 2;
 		for (int i=0; i <NBRICKS_PER_ROW; i++) {
-			int x = (WIDTH - (NBRICKS_PER_ROW * BRICK_WIDTH)) / 2;
 			GRect brick = new GRect (x, y, BRICK_WIDTH, BRICK_HEIGHT);
 			brick.setFilled(true);
 			brick.setFillColor(color);
