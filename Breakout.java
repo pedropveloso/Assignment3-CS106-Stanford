@@ -31,6 +31,9 @@ public class Breakout extends GraphicsProgram {
 
 /** Offset of the paddle up from the bottom */
 	private static final int PADDLE_Y_OFFSET = 30;
+	
+/** Y coordination of the paddle */	
+	private static final int Y_PADDLE = HEIGHT - PADDLE_HEIGHT - PADDLE_Y_OFFSET;
 
 /** Number of bricks per row */
 	private static final int NBRICKS_PER_ROW = 10;
@@ -66,7 +69,7 @@ public class Breakout extends GraphicsProgram {
 
 	private void setup() {
 		setUpBricks();
-	//	setUpPaddle();
+		setUpPaddle();
 	}
 	
 	private void setUpBricks() {
@@ -100,5 +103,16 @@ public class Breakout extends GraphicsProgram {
 			x += BRICK_SEP + BRICK_WIDTH;
 		}
 	}
+	
+	private void setUpPaddle() {
+		GRect paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
+		xPaddle = (WIDTH - PADDLE_WIDTH) / 2;
+		add (paddle, xPaddle, yPaddle);
+	}
+
+/* Private instance variables */
+	int xPaddle;
+	int yPaddle = Y_PADDLE;
+	
 	
 }
