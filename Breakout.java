@@ -147,6 +147,9 @@ public class Breakout extends GraphicsProgram {
 			ball.setFilled(true);
 			ball.setColor(Color.GREEN);
 			add (ball, getWidth() / 2 - BALL_RADIUS, getHeight() / 2 - BALL_RADIUS);
+			vx = rgen.nextDouble(1.0, 3.0);
+			if (rgen.nextBoolean(0.5)) vx=-vx;
+			vy = 3;
 		}
 	}
 	
@@ -164,7 +167,11 @@ public class Breakout extends GraphicsProgram {
 	
 	private void moveBall() {
 		if (ball!=null) {
-			
+			ball.move(vx, vy);
+			if (ball.getX() <=0) vx=-vx;
+			if (ball.getX() >= WIDTH - 2*BALL_RADIUS) vx=-vx;
+			if (ball.getY() <=0) vy=-vy;
+			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) vy=-vy;
 		}
 	}
 	
@@ -178,4 +185,6 @@ public class Breakout extends GraphicsProgram {
 	private GOval ball;
 	private boolean win; //true when all the bricks are destroyed
 	private boolean loose; //true when the player looses the 3 lives
+	private double vx, vy;
+	private RandomGenerator rgen = RandomGenerator.getInstance();
 }
