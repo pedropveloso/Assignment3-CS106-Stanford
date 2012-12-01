@@ -112,14 +112,16 @@ public class Breakout extends GraphicsProgram {
 		addMouseListeners();
 	}
 	
+	private void play() {
+		movePaddle();
+		label = new GLabel("");
+		add (label, 50, 50);
+	}
+
 	public void mouseMoved (MouseEvent e) {
 		xPaddle = e.getX();
 	}
 	
-	private void play() {
-		movePaddle();
-			
-	}
 	
 	private void movePaddle() {
 		double dx = paddle.getX() - xPaddle;
@@ -127,9 +129,9 @@ public class Breakout extends GraphicsProgram {
 	}
 
 /* Private instance variables */
-	GRect paddle;
-	int xPaddle;
-	int yPaddle = Y_PADDLE;
-	
+	private GRect paddle;
+	private int xPaddle;
+	private int yPaddle = Y_PADDLE;
+	private GLabel label;
 	
 }
