@@ -124,6 +124,14 @@ public class Breakout extends GraphicsProgram {
 			label.setLabel("Mouse: (" + e.getX() + ", " + e.getY() + ")");
 			double dx = xPaddle - paddle.getX();
 			paddle.move(dx, 0);
+		} else if (e.getX() < PADDLE_WIDTH / 2) {
+			xPaddle = 0;
+			double dx = xPaddle - paddle.getX();
+			paddle.move(dx, 0);
+		} else {
+			xPaddle = WIDTH - PADDLE_WIDTH;
+			double dx = xPaddle - paddle.getX();
+			paddle.move(dx, 0);
 		}
 		
 	}
