@@ -112,16 +112,9 @@ public class Breakout extends GraphicsProgram {
 		addMouseListeners();
 	}
 	
-	private void play() {
-		//movePaddle();
-		label = new GLabel("");
-		add (label, 50, 50);
-	}
-
 	public void mouseMoved (MouseEvent e) {
 		if (e.getX() >= PADDLE_WIDTH / 2 && e.getX() <= WIDTH - PADDLE_WIDTH / 2) {
 			xPaddle = e.getX() - PADDLE_WIDTH / 2;
-			label.setLabel("Mouse: (" + e.getX() + ", " + e.getY() + ")");
 			double dx = xPaddle - paddle.getX();
 			paddle.move(dx, 0);
 		} else if (e.getX() < PADDLE_WIDTH / 2) {
@@ -133,19 +126,17 @@ public class Breakout extends GraphicsProgram {
 			double dx = xPaddle - paddle.getX();
 			paddle.move(dx, 0);
 		}
-		
 	}
 	
+	private void play() {
+		
+	}
+
 	
-	/* private void movePaddle() {
-		double dx = paddle.getX() - xPaddle;
-		paddle.move(dx, 0);
-	}*/
 
 /* Private instance variables */
 	private GRect paddle;
 	private int xPaddle;
 	private int yPaddle = Y_PADDLE;
-	private GLabel label;
 	
 }
