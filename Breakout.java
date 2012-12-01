@@ -155,7 +155,7 @@ public class Breakout extends GraphicsProgram {
 	private void play() {
 		while (!gameOver()) {
 			moveBall();
-		//	checkForCollision();
+			checkForCollision();
 			pause(DELAY);
 		}
 	}
@@ -171,6 +171,17 @@ public class Breakout extends GraphicsProgram {
 			if (ball.getX() >= WIDTH - 2*BALL_RADIUS) vx=-vx;
 			if (ball.getY() <=0) vy=-vy;
 			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) vy=-vy;
+		}
+	}
+	
+	private void checkForCollision() {
+		if (ball != null) {
+			if( paddle.contains(ball.getLocation()) || 
+					paddle.contains(ball.getX()+ 2 * BALL_RADIUS, ball.getY()) || 
+						paddle.contains(ball.getX(), ball.getY() + 2 * BALL_RADIUS) ||
+							paddle.contains(ball.getX() + 2 * BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS)) {
+				vy = -vy;
+			}
 		}
 	}
 	
