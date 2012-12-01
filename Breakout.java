@@ -20,7 +20,7 @@ import javax.swing.JButton;
 public class Breakout extends GraphicsProgram {
 
 /** Width and height of application window in pixels */
-	public static final int APPLICATION_WIDTH = 400;
+	public static final int APPLICATION_WIDTH = 400 + 40;
 	public static final int APPLICATION_HEIGHT = 600;
 
 /** Dimensions of game board (usually the same) */
@@ -81,7 +81,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	public void init() {
-		add(new JButton ("Shoot!"), SOUTH);
+		add(new JButton ("New Ball"), SOUTH);
 		addMouseListeners();
 		addActionListeners();
 	}
