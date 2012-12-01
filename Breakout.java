@@ -109,6 +109,11 @@ public class Breakout extends GraphicsProgram {
 		paddle.setFilled(true);
 		xPaddle = (WIDTH - PADDLE_WIDTH) / 2;
 		add (paddle, xPaddle, yPaddle);
+		addMouseListeners();
+	}
+	
+	public void mouseMoved (MouseEvent e) {
+		xPaddle = e.getX();
 	}
 
 /* Private instance variables */
