@@ -121,7 +121,7 @@ public class Breakout extends GraphicsProgram {
 	public void mouseMoved (MouseEvent e) {
 		xPaddle = e.getX();
 		label.setLabel("Mouse: (" + e.getX() + ", " + e.getY() + ")");
-		double dx = paddle.getX() - xPaddle;
+		double dx = xPaddle - paddle.getX();
 		paddle.move(dx, 0);
 	}
 	
