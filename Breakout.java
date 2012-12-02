@@ -195,15 +195,16 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void ballPosition() {
-		ball1 = ball.getLocation();
-		ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
-		ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
-		ball4 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
-		ball5 = new GPoint (ball.getX(), ball.getY() + BALL_RADIUS);
-		ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
-		ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
-		ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
-		
+		if (ball != null) {
+			ball1 = ball.getLocation();
+			ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
+			ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
+			ball4 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
+			ball5 = new GPoint (ball.getX(), ball.getY() + BALL_RADIUS);
+			ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
+			ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
+			ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
+		}
 	}
 	
 	private void checkForCollision() {
