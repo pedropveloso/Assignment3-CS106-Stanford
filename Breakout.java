@@ -148,7 +148,7 @@ public class Breakout extends GraphicsProgram {
 			add (ball, getWidth() / 2 - BALL_RADIUS, getHeight() / 2 - BALL_RADIUS);
 			ball.sendToBack();
 			vx = rgen.nextDouble(1.0, 3.0);
-			if (rgen.nextBoolean(0.5)) vx=-vx;
+			if (rgen.nextBoolean(0.5)) vx = -vx;
 			vy = 3;
 		}
 	}
@@ -187,13 +187,13 @@ public class Breakout extends GraphicsProgram {
 							paddle.contains(ball4)) {
 				vy = -vy;
 			}
-			if (getElementAt(ball1) != ball && getElementAt(ball1) != null) { 
+			if (getElementAt(ball1) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) { 
 				destroyBrick(getElementAt(ball1));
-			} else if (getElementAt(ball2) != ball && getElementAt(ball1) != null) {
+			} else if (getElementAt(ball2) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
 				destroyBrick (getElementAt(ball2));
-			} else if (getElementAt(ball3) != ball && getElementAt(ball1) != null) {
+			} else if (getElementAt(ball3) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
 				destroyBrick (getElementAt(ball3));
-			} else if (getElementAt(ball4) != ball && getElementAt(ball1) != null) {
+			} else if (getElementAt(ball4) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
 				destroyBrick (getElementAt(ball4));
 			}
 		}
