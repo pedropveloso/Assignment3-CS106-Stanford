@@ -156,7 +156,7 @@ public class Breakout extends GraphicsProgram {
 	private void play() {
 		while (!gameOver()) {
 			moveBall();
-		//	checkForCollision();
+			checkForCollision();
 			pause(DELAY);
 		}
 	}
@@ -179,7 +179,7 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
-/*	private void checkForCollision() {
+	private void checkForCollision() {
 		if (ball != null) {
 			if( paddle.contains(ball1) || 
 					paddle.contains(ball2) || 
@@ -187,7 +187,7 @@ public class Breakout extends GraphicsProgram {
 							paddle.contains(ball4)) {
 				vy = -vy;
 			}
-			if (getElementAt(ball1) != ball) { 
+			/*if (getElementAt(ball1) != ball) { 
 				destroyBrick(getElementAt(ball1));
 			} else if (getElementAt(ball2) != ball) {
 				destroyBrick (getElementAt(ball2));
@@ -195,10 +195,10 @@ public class Breakout extends GraphicsProgram {
 				destroyBrick (getElementAt(ball3));
 			} else if (getElementAt(ball4) != ball) {
 				destroyBrick (getElementAt(ball4));
-			}
+			}*/
 		}
 		if (points == 100) win = true;
-	}*/
+	}
 	
 	private void destroyBrick(GObject obj) {
 		remove(obj);
