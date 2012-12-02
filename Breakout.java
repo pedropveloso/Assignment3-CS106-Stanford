@@ -146,6 +146,7 @@ public class Breakout extends GraphicsProgram {
 			ball = new GOval (2*BALL_RADIUS, 2*BALL_RADIUS);
 			ball.setFilled(true);
 			add (ball, getWidth() / 2 - BALL_RADIUS, getHeight() / 2 - BALL_RADIUS);
+			ball.sendToBack();
 			vx = rgen.nextDouble(1.0, 3.0);
 			if (rgen.nextBoolean(0.5)) vx=-vx;
 			vy = 3;
@@ -176,15 +177,30 @@ public class Breakout extends GraphicsProgram {
 	
 	private void checkForCollision() {
 		if (ball != null) {
-			if( paddle.contains(ball.getLocation()) || 
-					paddle.contains(ball.getX()+ 2 * BALL_RADIUS, ball.getY()) || 
-						paddle.contains(ball.getX(), ball.getY() + 2 * BALL_RADIUS) ||
-							paddle.contains(ball.getX() + 2 * BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS)) {
+			if( paddle.contains(ball1) || 
+					paddle.contains(ball2) || 
+						paddle.contains(ball3) ||
+							paddle.contains(ball4)) {
 				vy = -vy;
 			}
+			if (getElementAt(ball1) != ball) { 
+				destroyBrick(getElementAt(ball1));
+			} else if (getElementAt(ball2) != ball) {
+				destroyBrick (getElementAt(ball2));
+			} else if (getElementAt(ball3) != ball) {
+				destroyBrick (getElementAt(ball3));
+			} else if (getElementAt(ball4) != ball) {
+				destroyBrick (getElementAt(ball4));
+			}
 		}
+		if (points == 100) win = true;
 	}
 	
+	private void destroyBrick(GObject obj) {
+		remove(obj);
+		vy = -vy;
+		points++;
+	}
 
 /* Private instance variables */
 	private GRect paddle;
@@ -197,4 +213,8 @@ public class Breakout extends GraphicsProgram {
 	private boolean loose; //true when the player looses the 3 lives
 	private double vx, vy;
 	private RandomGenerator rgen = RandomGenerator.getInstance();
+	private GPoint ball1 = ball.getLocation();
+	private GPoint ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
+	private GPoint ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
+	private GPoint ball4 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
 }
