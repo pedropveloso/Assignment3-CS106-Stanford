@@ -180,11 +180,12 @@ public class Breakout extends GraphicsProgram {
 				vx=-vx;
 			}
 			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) {
-				lives-=1;
+				lives -= 1;
 				if (lives > 0) {
 					removeAll();
-					ball=null;
-					paddle=null;
+					ball = null;
+					paddle = null;
+					points = 0;
 					setup();
 				} else {
 					loose = true;
