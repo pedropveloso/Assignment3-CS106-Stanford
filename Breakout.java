@@ -147,7 +147,7 @@ public class Breakout extends GraphicsProgram {
 			ball.setFilled(true);
 			add (ball, getWidth() / 2 - BALL_RADIUS, getHeight() / 2 - BALL_RADIUS);
 			ball.sendToBack();
-			vx = rgen.nextDouble(2.0, 3.0);
+			vx = rgen.nextDouble(1.0, 3.0);
 			if (rgen.nextBoolean(0.5)) vx = -vx;
 			vy = 3;
 		}
@@ -169,9 +169,9 @@ public class Breakout extends GraphicsProgram {
 		if (ball!=null) {
 			ball.move(vx, vy);
 			if (ball.getX() <=0) vx=-vx;
-			if (ball.getX() >= WIDTH - 2*BALL_RADIUS) vx=-vx;
+			if (ball.getX() >= WIDTH - 2*BALL_RADIUS) vx = -vx;
 			if (ball.getY() <=0) vy=-vy;
-			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) vy=-vy;
+			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) loose = true;
 			ball1 = ball.getLocation();
 			ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
 			ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
