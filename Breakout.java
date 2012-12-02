@@ -182,15 +182,24 @@ public class Breakout extends GraphicsProgram {
 			ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
 			ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
 			ball4 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
+			ball5 = new GPoint (ball.getX(), ball.getY() + BALL_RADIUS);
+			ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
+			ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
+			ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
 		}
 	}
 	
 	private void checkForCollision() {
 		if (ball != null) {
-			if( paddle.contains(ball1) || 
+			if (paddle.contains(ball1) || 
 					paddle.contains(ball2) || 
 						paddle.contains(ball3) ||
-							paddle.contains(ball4)) {
+							paddle.contains(ball4) ||
+								paddle.contains(ball7) ||
+									paddle.contains(ball8)) {
+				vy = -vy;
+			} else if (paddle.contains(ball5) || paddle.contains(ball6)) {
+				vx = -vx;
 				vy = -vy;
 			}
 			if (getElementAt(ball1) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) { 
@@ -201,6 +210,14 @@ public class Breakout extends GraphicsProgram {
 				destroyBrick (getElementAt(ball3));
 			} else if (getElementAt(ball4) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
 				destroyBrick (getElementAt(ball4));
+			} else if (getElementAt(ball5) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
+				destroyBrick (getElementAt(ball5));
+			} else if (getElementAt(ball6) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
+				destroyBrick (getElementAt(ball6));
+			} else if (getElementAt(ball7) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
+				destroyBrick (getElementAt(ball7));
+			}	else if (getElementAt(ball8) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
+				destroyBrick (getElementAt(ball8));
 			}
 		}
 		if (points == TOTAL_BRICKS) win = true;
@@ -214,11 +231,11 @@ public class Breakout extends GraphicsProgram {
 	
 	private void showScore() {
 		if (win) {
-			showBoard("Congratulations. You won!");
 			boardColor = Color.GREEN;
+			showBoard("Congratulations. You won!");
 		}else if (loose) {
-			showBoard("Sorry, you lost. Try again.");
 			boardColor = Color.RED;
+			showBoard("Sorry, you lost. Try again.");
 		}
 	}
 		
@@ -248,9 +265,6 @@ public class Breakout extends GraphicsProgram {
 	private boolean loose; //true when the player looses the 3 lives
 	private double vx, vy;
 	private RandomGenerator rgen = RandomGenerator.getInstance();
-	private GPoint ball1;
-	private GPoint ball2;
-	private GPoint ball3;
-	private GPoint ball4;
-	private Color boardColor = Color.RED;
+	private GPoint ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8; // These points define the borders of the ball where collision is checked
+	private Color boardColor;
 }
