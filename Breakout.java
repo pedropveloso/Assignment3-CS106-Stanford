@@ -186,9 +186,9 @@ public class Breakout extends GraphicsProgram {
 					ball=null;
 					paddle=null;
 					setup();
-				} /*else {
+				} else {
 					loose = true;
-				}*/
+				}
 			}
 		} 
 		if (ball != null) {
