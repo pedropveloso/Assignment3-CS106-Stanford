@@ -66,7 +66,7 @@ public class Breakout extends GraphicsProgram {
 	private static final int NTURNS = 3;
 	
 /** Animation cycle delay */
-	private static final int DELAY = 10;	
+	private static final int DELAY = 20;	
 
 /* Method: run() */
 /** Runs the Breakout program. */
@@ -149,7 +149,7 @@ public class Breakout extends GraphicsProgram {
 			ball.sendToBack();
 			vx = rgen.nextDouble(1.0, 3.0);
 			if (rgen.nextBoolean(0.5)) vx = -vx;
-			vy = 10;
+			vy = 5;
 		}
 	}
 	
