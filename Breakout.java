@@ -182,9 +182,9 @@ public class Breakout extends GraphicsProgram {
 				if (lives > 0) {
 					removeAll();
 					setup();
-				} else {
+				} /*else {
 					loose = true;
-				}
+				}*/
 			}
 			ball1 = ball.getLocation();
 			ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
