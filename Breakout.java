@@ -178,7 +178,6 @@ public class Breakout extends GraphicsProgram {
 			ball.move(vx, vy);
 			if (ball.getX() <=0 || ball.getX() >= WIDTH - 2*BALL_RADIUS || ball.getY() >= HEIGHT - 2*BALL_RADIUS) {
 				vx=-vx;
-				ballPosition();
 			}
 			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) {
 				lives-=1;
@@ -191,10 +190,7 @@ public class Breakout extends GraphicsProgram {
 					loose = true;
 				}*/
 			}
-		}
-	}
-	
-	private void ballPosition() {
+		} 
 		if (ball != null) {
 			ball1 = ball.getLocation();
 			ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
@@ -206,6 +202,7 @@ public class Breakout extends GraphicsProgram {
 			ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
 		}
 	}
+	
 	
 	private void checkForCollision() {
 		if (ball != null) {
