@@ -70,7 +70,7 @@ public class Breakout extends GraphicsProgram {
 	private static final int BOARD_HEIGHT = BOARD_WIDTH / 2;	
 	
 /** Animation cycle delay */
-	private static final int DELAY = 2;	
+	private static final int DELAY = 3;	
 
 /* Method: run() */
 /** Runs the Breakout program. */
@@ -214,14 +214,9 @@ public class Breakout extends GraphicsProgram {
 			ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
 			ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
 			ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
-			if (paddle.contains(ball1) || 
-					paddle.contains(ball2) || 
-						paddle.contains(ball3) ||
-							paddle.contains(ball4) ||
-								paddle.contains(ball7) ||
-									paddle.contains(ball8) ||
-										paddle.contains(ball5) || 
-											paddle.contains(ball6)) {
+			if ( paddle.contains(ball3) ||
+					paddle.contains(ball4) ||
+						paddle.contains(ball8)) {
 				vy = -vy;
 			} 
 			if (getElementAt(ball1) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) { 
