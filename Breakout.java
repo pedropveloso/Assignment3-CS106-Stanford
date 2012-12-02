@@ -187,9 +187,8 @@ public class Breakout extends GraphicsProgram {
 							paddle.contains(ball4)) {
 				vy = -vy;
 			}
-			if (getElementAt(ball1) != ball) { 
-				//destroyBrick(getElementAt(ball1));
-				 getElementAt(ball1).setColor(Color.BLUE);
+			if (getElementAt(ball1) != ball && getElementAt(ball1) != null) { 
+				destroyBrick(getElementAt(ball1));
 			}/* else if (getElementAt(ball2) != ball) {
 				destroyBrick (getElementAt(ball2));
 			} else if (getElementAt(ball3) != ball) {
