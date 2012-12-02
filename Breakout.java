@@ -148,7 +148,7 @@ public class Breakout extends GraphicsProgram {
 			add (ball, getWidth() / 2 - BALL_RADIUS, getHeight() / 2 - BALL_RADIUS);
 			ball.sendToBack();
 			vx = rgen.nextDouble(1.0, 3.0);
-			if (rgen.nextBoolean(0.9)) vx = -vx;
+			if (rgen.nextBoolean(0.5)) vx = -vx;
 			vy = 3;
 		}
 	}
