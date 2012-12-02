@@ -81,16 +81,18 @@ public class Breakout extends GraphicsProgram {
 		showScore();
 	}
 
-	private void setup() {
-		setUpBricks();
-		setUpPaddle();
-	}
-	
 	public void init() {
 		add(new JButton ("New Ball"), SOUTH);
 		addMouseListeners();
 		addActionListeners();
 	}
+
+	
+	private void setup() {
+		setUpBricks();
+		setUpPaddle();
+	}
+	
 	
 	private void setUpBricks() {
 		int y = BRICK_Y_OFFSET;
@@ -268,7 +270,6 @@ public class Breakout extends GraphicsProgram {
 	private int xPaddle;
 	private int yPaddle = Y_PADDLE;
 	private int points = 0; //number of bricks destroyed
-	private int turn;
 	private GOval ball;
 	private boolean win; //true when all the bricks are destroyed
 	private boolean loose; //true when the player looses the 3 lives
