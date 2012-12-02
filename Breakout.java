@@ -181,7 +181,7 @@ public class Breakout extends GraphicsProgram {
 			if (ball.getY() <=0) vy=-vy;
 			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) {
 				lives-=1;
-				if (lives > 0) {
+				if (true) {
 					remove(ball);
 					removeAll();
 					setup();
