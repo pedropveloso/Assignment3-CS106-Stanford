@@ -189,19 +189,19 @@ public class Breakout extends GraphicsProgram {
 					loose = true;
 				}*/
 			}
-			ball1 = ball.getLocation();
+			/*ball1 = ball.getLocation();
 			ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
 			ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
 			ball4 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
 			ball5 = new GPoint (ball.getX(), ball.getY() + BALL_RADIUS);
 			ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
 			ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
-			ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
+			ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);*/
+			
 		}
 	}
-	
 	private void checkForCollision() {
-		if (ball != null) {
+		/*if (ball != null) {
 			if (paddle.contains(ball1) || 
 					paddle.contains(ball2) || 
 						paddle.contains(ball3) ||
@@ -231,7 +231,7 @@ public class Breakout extends GraphicsProgram {
 				destroyBrick (getElementAt(ball8));
 			}
 		}
-		if (points == TOTAL_BRICKS) win = true;
+		if (points == TOTAL_BRICKS) win = true;*/
 	}
 	
 	private void destroyBrick(GObject obj) {
