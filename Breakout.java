@@ -150,7 +150,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	public void actionPerformed (ActionEvent e) {
-		if (true /*ball == null && lives > 0*/) {
+		if (ball == null && lives > 0) {
 			ball = new GOval (2*BALL_RADIUS, 2*BALL_RADIUS);
 			ball.setFilled(true);
 			add (ball, getWidth() / 2 - BALL_RADIUS, getHeight() / 2 - BALL_RADIUS);
@@ -182,6 +182,7 @@ public class Breakout extends GraphicsProgram {
 			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) {
 				lives-=1;
 				if (lives > 0) {
+					remove(ball);
 					removeAll();
 					setup();
 				} /*else {
