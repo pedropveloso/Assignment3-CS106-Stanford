@@ -252,5 +252,5 @@ public class Breakout extends GraphicsProgram {
 	private GPoint ball2;
 	private GPoint ball3;
 	private GPoint ball4;
-	private Color boardColor;
+	private Color boardColor = Color.RED;
 }
