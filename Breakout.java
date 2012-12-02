@@ -172,6 +172,10 @@ public class Breakout extends GraphicsProgram {
 			if (ball.getX() >= WIDTH - 2*BALL_RADIUS) vx=-vx;
 			if (ball.getY() <=0) vy=-vy;
 			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) vy=-vy;
+			ball1 = ball.getLocation();
+			ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
+			ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
+			ball4 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
 		}
 	}
 	
@@ -213,8 +217,8 @@ public class Breakout extends GraphicsProgram {
 	private boolean loose; //true when the player looses the 3 lives
 	private double vx, vy;
 	private RandomGenerator rgen = RandomGenerator.getInstance();
-	private GPoint ball1 = ball.getLocation();
-	private GPoint ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
-	private GPoint ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
-	private GPoint ball4 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
+	private GPoint ball1;
+	private GPoint ball2;
+	private GPoint ball3;
+	private GPoint ball4;
 }
