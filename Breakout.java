@@ -213,29 +213,28 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void showScore() {
+		
+		if (win) {
+			showBoard("Congratulations. You won!");
+			boardColor = Color.GREEN;
+		}else if (loose) {
+			showBoard("Sorry, you lost. Try again.");
+			boardColor = Color.RED;
+		}
+	}
+		
+	private void showBoard(String str) {
 		int x = (getWidth() - BOARD_WIDTH) / 2;
 		int y = (getHeight() - BOARD_HEIGHT) / 2;
-		if (win) {
-			GRect won = new GRect(x,y,BOARD_WIDTH, BOARD_HEIGHT);
-			won.setFilled(true);
-			won.setFillColor(Color.GREEN);
-			GLabel label = new GLabel("Congratulations!");
-			double xLabel = (getWidth() - label.getWidth()) / 2;
-			double yLabel = (getHeight() + label.getAscent()) / 2;
-			label.setFont("Helvetica, Font.BOLD, 18");
-			add (won);
-			add (label, xLabel, yLabel);
-		} else if (loose){
-			GRect lost = new GRect(x,y,BOARD_WIDTH, BOARD_HEIGHT);
-			lost.setFilled(true);
-			lost.setFillColor(Color.RED);
-			GLabel label = new GLabel("Sorry, you lost. Try again.");
-			double xLabel = (getWidth() - label.getWidth()) / 2;
-			double yLabel = (getHeight() + label.getAscent()) / 2;
-			label.setFont("Helvetica, Font.BOLD, 18");
-			add (lost);
-			add (label, xLabel, yLabel); 
-		}	
+		GRect board = new GRect(x,y,BOARD_WIDTH, BOARD_HEIGHT);
+		board.setFilled(true);
+		board.setFillColor(boardColor);
+		GLabel label = new GLabel (str);
+		double xLabel = (getWidth() - label.getWidth()) / 2;
+		double yLabel = (getHeight() + label.getAscent()) / 2;
+		label.setFont("Helvetica, Font.BOLD, 18");
+		add (board);
+		add (label, xLabel, yLabel);
 	}
 
 
@@ -254,4 +253,5 @@ public class Breakout extends GraphicsProgram {
 	private GPoint ball2;
 	private GPoint ball3;
 	private GPoint ball4;
+	private Color boardColor;
 }
