@@ -70,7 +70,7 @@ public class Breakout extends GraphicsProgram {
 	private static final int BOARD_HEIGHT = BOARD_WIDTH / 2;	
 	
 /** Animation cycle delay */
-	private static final int DELAY = 5;	
+	private static final int DELAY = 2;	
 
 /* Method: run() */
 /** Runs the Breakout program. */
@@ -155,7 +155,7 @@ public class Breakout extends GraphicsProgram {
 			ball.setFilled(true);
 			add (ball, getWidth() / 2 - BALL_RADIUS, getHeight() / 2 - BALL_RADIUS);
 			ball.sendToBack();
-			vx = rgen.nextDouble(0.2, 1.0);
+			vx = rgen.nextDouble(0.5, 1.0);
 			if (rgen.nextBoolean(0.5)) vx = -vx;
 			vy = 1;
 		}
