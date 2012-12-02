@@ -176,12 +176,13 @@ public class Breakout extends GraphicsProgram {
 	private void moveBall() {
 		if (ball!=null) {
 			ball.move(vx, vy);
-			if (ball.getX() <=0) vx=-vx;
-			if (ball.getX() >= WIDTH - 2*BALL_RADIUS) vx = -vx;
-			if (ball.getY() <=0) vy=-vy;
+			if (ball.getX() <=0 || ball.getX() >= WIDTH - 2*BALL_RADIUS || ball.getY() >= HEIGHT - 2*BALL_RADIUS) {
+				vx=-vx;
+				ballPosition();
+			}
 			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) {
 				lives-=1;
-				if (true) {
+				if (lives > 0) {
 					removeAll();
 					ball=null;
 					paddle=null;
@@ -190,17 +191,21 @@ public class Breakout extends GraphicsProgram {
 					loose = true;
 				}*/
 			}
-			ball1 = ball.getLocation();
-			ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
-			ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
-			ball4 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
-			ball5 = new GPoint (ball.getX(), ball.getY() + BALL_RADIUS);
-			ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
-			ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
-			ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
-			
 		}
 	}
+	
+	private void ballPosition() {
+		ball1 = ball.getLocation();
+		ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
+		ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
+		ball4 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
+		ball5 = new GPoint (ball.getX(), ball.getY() + BALL_RADIUS);
+		ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
+		ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
+		ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
+		
+	}
+	
 	private void checkForCollision() {
 		if (ball != null) {
 			if (paddle.contains(ball1) || 
