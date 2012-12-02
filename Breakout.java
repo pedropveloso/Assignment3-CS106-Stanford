@@ -65,6 +65,10 @@ public class Breakout extends GraphicsProgram {
 /** Number of turns */
 	private static final int NTURNS = 3;
 	
+/** Size of the final Board */
+	private static final int BOARD_WIDTH = 200;
+	private static final int BOARD_HEIGHT = BOARD_WIDTH / 2;	
+	
 /** Animation cycle delay */
 	private static final int DELAY = 7;	
 
@@ -73,6 +77,7 @@ public class Breakout extends GraphicsProgram {
 	public void run() {
 		setup();
 		play();
+		showScore();
 	}
 
 	private void setup() {
@@ -159,6 +164,7 @@ public class Breakout extends GraphicsProgram {
 			checkForCollision();
 			pause(DELAY);
 		}
+		
 	}
 
 	private boolean gameOver() {
@@ -205,6 +211,33 @@ public class Breakout extends GraphicsProgram {
 		vy = -vy;
 		points++;
 	}
+	
+	private void showScore() {
+		int x = (getWidth() - BOARD_WIDTH) / 2;
+		int y = (getHeight() - BOARD_HEIGHT) / 2;
+		if (win) {
+			GRect won = new GRect(x,y,BOARD_WIDTH, BOARD_HEIGHT);
+			won.setFilled(true);
+			won.setFillColor(Color.GREEN);
+			GLabel label = new GLabel("Congratulations!");
+			double xLabel = (getWidth() - label.getWidth()) / 2;
+			double yLabel = (getHeight() + label.getAscent()) / 2;
+			label.setFont("Helvetica, Font.BOLD, 18");
+			add (won);
+			add (label, xLabel, yLabel);
+		} else if (loose){
+			GRect lost = new GRect(x,y,BOARD_WIDTH, BOARD_HEIGHT);
+			lost.setFilled(true);
+			lost.setFillColor(Color.RED);
+			GLabel label = new GLabel("Sorry, you lost. Try again.");
+			double xLabel = (getWidth() - label.getWidth()) / 2;
+			double yLabel = (getHeight() + label.getAscent()) / 2;
+			label.setFont("Helvetica, Font.BOLD, 18");
+			add (lost);
+			add (label, xLabel, yLabel); 
+		}	
+	}
+
 
 /* Private instance variables */
 	private GRect paddle;
