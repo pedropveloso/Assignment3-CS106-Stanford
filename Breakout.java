@@ -240,6 +240,7 @@ public class Breakout extends GraphicsProgram {
 	}
 		
 	private void showBoard(String str) {
+		removeAll();
 		int x = (getWidth() - BOARD_WIDTH) / 2;
 		int y = (getHeight() - BOARD_HEIGHT) / 2;
 		GRect board = new GRect(x,y,BOARD_WIDTH, BOARD_HEIGHT);
