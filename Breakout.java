@@ -189,7 +189,8 @@ public class Breakout extends GraphicsProgram {
 			}
 			if (getElementAt(ball1) != ball) { 
 				//destroyBrick(getElementAt(ball1));
-				 vy=-vy;
+				 GLabel label = new GLabel("getElementAt(ball1)");
+				 add (label, 0, 20);
 			}/* else if (getElementAt(ball2) != ball) {
 				destroyBrick (getElementAt(ball2));
 			} else if (getElementAt(ball3) != ball) {
