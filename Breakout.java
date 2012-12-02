@@ -189,13 +189,13 @@ public class Breakout extends GraphicsProgram {
 			}
 			if (getElementAt(ball1) != ball && getElementAt(ball1) != null) { 
 				destroyBrick(getElementAt(ball1));
-			}/* else if (getElementAt(ball2) != ball) {
+			} else if (getElementAt(ball2) != ball && getElementAt(ball1) != null) {
 				destroyBrick (getElementAt(ball2));
-			} else if (getElementAt(ball3) != ball) {
+			} else if (getElementAt(ball3) != ball && getElementAt(ball1) != null) {
 				destroyBrick (getElementAt(ball3));
-			} else if (getElementAt(ball4) != ball) {
+			} else if (getElementAt(ball4) != ball && getElementAt(ball1) != null) {
 				destroyBrick (getElementAt(ball4));
-			}*/
+			}
 		}
 		if (points == 100) win = true;
 	}
