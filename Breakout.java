@@ -75,6 +75,7 @@ public class Breakout extends GraphicsProgram {
 /* Method: run() */
 /** Runs the Breakout program. */
 	public void run() {
+		lives = NTURNS;
 		setup();
 		play();
 		showScore();
@@ -164,7 +165,6 @@ public class Breakout extends GraphicsProgram {
 			checkForCollision();
 			pause(DELAY);
 		}
-		
 	}
 
 	private boolean gameOver() {
@@ -177,7 +177,15 @@ public class Breakout extends GraphicsProgram {
 			if (ball.getX() <=0) vx=-vx;
 			if (ball.getX() >= WIDTH - 2*BALL_RADIUS) vx = -vx;
 			if (ball.getY() <=0) vy=-vy;
-			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) loose = true;
+			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) {
+				lives-=1;
+				if (lives > 0) {
+					removeAll();
+					setup();
+				} else {
+					loose = true;
+				}
+			}
 			ball1 = ball.getLocation();
 			ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
 			ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
@@ -268,4 +276,5 @@ public class Breakout extends GraphicsProgram {
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private GPoint ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8; // These points define the borders of the ball where collision is checked
 	private Color boardColor;
+	private int lives;
 }
