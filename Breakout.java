@@ -70,7 +70,7 @@ public class Breakout extends GraphicsProgram {
 	private static final int BOARD_HEIGHT = BOARD_WIDTH / 2;	
 	
 /** Animation cycle delay */
-	private static final int DELAY = 7;	
+	private static final int DELAY = 15;	
 
 /* Method: run() */
 /** Runs the Breakout program. */
