@@ -70,7 +70,7 @@ public class Breakout extends GraphicsProgram {
 	private static final int BOARD_HEIGHT = BOARD_WIDTH / 2;	
 	
 /** Animation cycle delay */
-	private static final int DELAY = 15;	
+	private static final int DELAY = 5;	
 
 /* Method: run() */
 /** Runs the Breakout program. */
@@ -157,7 +157,7 @@ public class Breakout extends GraphicsProgram {
 			ball.sendToBack();
 			vx = rgen.nextDouble(1.0, 3.0);
 			if (rgen.nextBoolean(0.5)) vx = -vx;
-			vy = 3;
+			vy = 1;
 		}
 	}
 	
@@ -177,7 +177,7 @@ public class Breakout extends GraphicsProgram {
 		if (ball!=null) {
 			ball.move(vx, vy);
 			if (ball.getX() <=0 || ball.getX() >= WIDTH - 2*BALL_RADIUS) vx=-vx;
-			if (ball.getY() < 2*BALL_RADIUS) vy = -vy;
+			if (ball.getY() < 0) vy = -vy;
 			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) {
 				lives -= 1;
 				if (lives > 0) {
