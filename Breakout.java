@@ -203,7 +203,7 @@ public class Breakout extends GraphicsProgram {
 				destroyBrick (getElementAt(ball4));
 			}
 		}
-		if (points == 100) win = true;
+		if (points == TOTAL_BRICKS) win = true;
 	}
 	
 	private void destroyBrick(GObject obj) {
@@ -213,7 +213,6 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void showScore() {
-		
 		if (win) {
 			showBoard("Congratulations. You won!");
 			boardColor = Color.GREEN;
@@ -228,7 +227,7 @@ public class Breakout extends GraphicsProgram {
 		int y = (getHeight() - BOARD_HEIGHT) / 2;
 		GRect board = new GRect(x,y,BOARD_WIDTH, BOARD_HEIGHT);
 		board.setFilled(true);
-		board.setFillColor(boardColor);
+		board.setColor(boardColor);
 		GLabel label = new GLabel (str);
 		double xLabel = (getWidth() - label.getWidth()) / 2;
 		double yLabel = (getHeight() + label.getAscent()) / 2;
