@@ -178,6 +178,14 @@ public class Breakout extends GraphicsProgram {
 			ball.move(vx, vy);
 			if (ball.getX() <=0 || ball.getX() >= WIDTH - 2*BALL_RADIUS || ball.getY() >= HEIGHT - 2*BALL_RADIUS) {
 				vx=-vx;
+				ball1 = ball.getLocation();
+				ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
+				ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
+				ball4 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
+				ball5 = new GPoint (ball.getX(), ball.getY() + BALL_RADIUS);
+				ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
+				ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
+				ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
 			}
 			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) {
 				lives-=1;
@@ -191,7 +199,7 @@ public class Breakout extends GraphicsProgram {
 				}
 			}
 		} 
-		if (ball != null) {
+		/*if (ball != null) {
 			ball1 = ball.getLocation();
 			ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
 			ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
@@ -200,7 +208,7 @@ public class Breakout extends GraphicsProgram {
 			ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
 			ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
 			ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
-		}
+		}*/
 	}
 	
 	
