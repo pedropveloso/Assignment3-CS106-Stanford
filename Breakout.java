@@ -219,12 +219,11 @@ public class Breakout extends GraphicsProgram {
 						paddle.contains(ball3) ||
 							paddle.contains(ball4) ||
 								paddle.contains(ball7) ||
-									paddle.contains(ball8)) {
+									paddle.contains(ball8) ||
+										paddle.contains(ball5) || 
+											paddle.contains(ball6)) {
 				vy = -vy;
-			} else if (paddle.contains(ball5) || paddle.contains(ball6)) {
-				vx = -vx;
-				vy = -vy;
-			}
+			} 
 			if (getElementAt(ball1) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) { 
 				destroyBrick(getElementAt(ball1));
 			} else if (getElementAt(ball2) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
