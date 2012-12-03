@@ -34,7 +34,7 @@ public class Breakout extends GraphicsProgram {
 /** Offset of the paddle up from the bottom */
 	private static final int PADDLE_Y_OFFSET = 70;
 	
-/** Y coordination of the paddle */	
+/** Y coordinate of the paddle */	
 	private static final int Y_PADDLE = HEIGHT - PADDLE_HEIGHT - PADDLE_Y_OFFSET;
 
 /** Number of bricks per row */
@@ -67,7 +67,11 @@ public class Breakout extends GraphicsProgram {
 	
 /** Size of the final Board */
 	private static final int BOARD_WIDTH = 200;
-	private static final int BOARD_HEIGHT = BOARD_WIDTH / 2;	
+	private static final int BOARD_HEIGHT = BOARD_WIDTH / 2;
+	
+/** Location of score label */
+	private static final int SCORE_X_OFFSET = 10;
+	private static final int SCORE_Y_OFFSET = 20;
 	
 /** Animation cycle delay */
 	private static final int DELAY = 6;	
@@ -137,7 +141,7 @@ public class Breakout extends GraphicsProgram {
 	private void setUpScore() {
 		GLabel label = new GLabel ("Lives: " + lives);
 		label.setFont("Helvetica, Font.BOLD, 18");
-		add (label, 10, yPaddle + PADDLE_HEIGHT + label.getAscent() + 2);
+		add (label, SCORE_X_OFFSET, HEIGHT - SCORE_Y_OFFSET);
 	}
 	
 	public void mouseMoved (MouseEvent e) {
