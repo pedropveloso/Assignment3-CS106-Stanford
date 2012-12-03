@@ -185,7 +185,7 @@ public class Breakout extends GraphicsProgram {
 			ball.move(vx, vy);
 			if (ball.getX() <=0 || ball.getX() >= WIDTH - 2*BALL_RADIUS) vx=-vx;
 			if (ball.getY() < 0) vy = -vy;
-			if (ball.getY() >= HEIGHT - 2*BALL_RADIUS) {
+			if (ball.getY() >= yPaddle + PADDLE_HEIGHT) {
 				lives -= 1;
 				if (lives > 0) {
 					removeAll();
