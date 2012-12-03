@@ -78,7 +78,7 @@ public class Breakout extends GraphicsProgram {
 	private static final int SCORE_Y_OFFSET = 40;
 	
 /** Speed of the ball */
-	private static final double VY = 3;
+	private static final double VY = 3.0;
 	
 /** Animation cycle delay */
 	private static final int DELAY = 10;	
