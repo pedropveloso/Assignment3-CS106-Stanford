@@ -60,7 +60,7 @@ public class Breakout extends GraphicsProgram {
 	private static final int BALL_RADIUS = 7;
 	
 /** Limit of the board for the ball */
-	private static final int LIMIT = Y_PADDLE - 2 * BALL_RADIUS;
+	private static final int LIMIT = Y_PADDLE;
 
 
 /** Offset of the top brick row from the top */
