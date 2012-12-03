@@ -234,7 +234,7 @@ public class Breakout extends GraphicsProgram {
 				destroyBrick(getElementAt(ball1));
 			} else if (getElementAt(ball2) != ball && getElementAt(ball2) != null && getElementAt(ball2) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball2));
-			} else if (getElementAt(ball3) != ball && getElementAt(ball3) != null && getElementAt(ball3) != paddle && getElementAt(ball1) != paddleBoard) {
+			} /*else if (getElementAt(ball3) != ball && getElementAt(ball3) != null && getElementAt(ball3) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball3));
 			} else if (getElementAt(ball4) != ball && getElementAt(ball4) != null && getElementAt(ball4) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball4));
@@ -242,11 +242,11 @@ public class Breakout extends GraphicsProgram {
 				destroyBrick (getElementAt(ball5));
 			} else if (getElementAt(ball6) != ball && getElementAt(ball6) != null && getElementAt(ball6) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball6));
-			} else if (getElementAt(ball7) != ball && getElementAt(ball7) != null && getElementAt(ball7) != paddle && getElementAt(ball1) != paddleBoard) {
+			}*/ else if (getElementAt(ball7) != ball && getElementAt(ball7) != null && getElementAt(ball7) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball7));
-			}	else if (getElementAt(ball8) != ball && getElementAt(ball8) != null && getElementAt(ball8) != paddle && getElementAt(ball1) != paddleBoard) {
+			}	/*else if (getElementAt(ball8) != ball && getElementAt(ball8) != null && getElementAt(ball8) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball8));
-			}
+			}*/
 		}
 		if (points == TOTAL_BRICKS) win = true;
 	}
