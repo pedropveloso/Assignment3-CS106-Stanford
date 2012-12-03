@@ -82,7 +82,7 @@ public class Breakout extends GraphicsProgram {
 		lives = NTURNS;
 		setup();
 		play();
-		showScore();
+		showFinalBoard();
 	}
 
 	public void init() {
@@ -255,7 +255,7 @@ public class Breakout extends GraphicsProgram {
 		points++;
 	}
 	
-	private void showScore() {
+	private void showFinalBoard() {
 		if (win) {
 			boardColor = Color.GREEN;
 			showBoard("Congratulations. You won!");
