@@ -30,7 +30,7 @@ public class Breakout extends GraphicsProgram {
 /** Dimensions of the paddle */
 	private static final int PADDLE_WIDTH = 60;
 	private static final int PADDLE_HEIGHT = 10;
-
+	
 /** Offset of the paddle up from the bottom */
 	private static final int PADDLE_Y_OFFSET = 70;
 	
@@ -58,6 +58,10 @@ public class Breakout extends GraphicsProgram {
 
 /** Radius of the ball in pixels */
 	private static final int BALL_RADIUS = 7;
+	
+/** Limit of the board for the ball */
+	private static final int LIMIT = Y_PADDLE - 2 * BALL_RADIUS;
+
 
 /** Offset of the top brick row from the top */
 	private static final int BRICK_Y_OFFSET = 70;
@@ -194,7 +198,7 @@ public class Breakout extends GraphicsProgram {
 			ball.move(vx, vy);
 			if (ball.getX() <=0 || ball.getX() >= WIDTH - 2*BALL_RADIUS) vx=-vx;
 			if (ball.getY() < 0) vy = -vy;
-			if (ball.getY() >= yPaddle + PADDLE_HEIGHT) {
+			if (ball.getY() >= LIMIT) {
 				lives -= 1;
 				if (lives > 0) {
 					removeAll();
