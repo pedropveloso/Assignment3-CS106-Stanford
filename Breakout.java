@@ -77,8 +77,11 @@ public class Breakout extends GraphicsProgram {
 	private static final int SCORE_X_OFFSET = 10;
 	private static final int SCORE_Y_OFFSET = 40;
 	
+/** Speed of the ball */
+	private static final double VY = 3;
+	
 /** Animation cycle delay */
-	private static final int DELAY = 6;	
+	private static final int DELAY = 10;	
 
 /* Method: run() */
 /** Runs the Breakout program. */
@@ -175,9 +178,9 @@ public class Breakout extends GraphicsProgram {
 			ball.setFilled(true);
 			add (ball, getWidth() / 2 - BALL_RADIUS, getHeight() / 2 - BALL_RADIUS);
 			ball.sendToBack();
-			vx = rgen.nextDouble(0.5, 1.0);
+			vx = rgen.nextDouble(1.0, VY);
 			if (rgen.nextBoolean(0.5)) vx = -vx;
-			vy = 1;
+			vy = VY;
 		}
 	}
 	
@@ -224,7 +227,7 @@ public class Breakout extends GraphicsProgram {
 			ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
 			ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
 			ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
-			if ( paddleBoard.contains(ball1) || paddleBoard.contains(ball2) || paddleBoard.contains(ball3) || paddleBoard.contains(ball4)){
+			if ( paddleBoard.contains(ball3) || paddleBoard.contains(ball4)){
 				vy = -vy;
 			} 
 			if (getElementAt(ball1) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle && getElementAt(ball1) != paddleBoard) { 
