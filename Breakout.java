@@ -71,7 +71,7 @@ public class Breakout extends GraphicsProgram {
 	
 /** Location of score label */
 	private static final int SCORE_X_OFFSET = 10;
-	private static final int SCORE_Y_OFFSET = 20;
+	private static final int SCORE_Y_OFFSET = 40;
 	
 /** Animation cycle delay */
 	private static final int DELAY = 6;	
