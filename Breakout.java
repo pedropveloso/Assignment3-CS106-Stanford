@@ -91,6 +91,7 @@ public class Breakout extends GraphicsProgram {
 	private void setup() {
 		setUpBricks();
 		setUpPaddle();
+		setUpScore();
 	}
 	
 	
@@ -131,6 +132,12 @@ public class Breakout extends GraphicsProgram {
 		paddle.setFilled(true);
 		xPaddle = (WIDTH - PADDLE_WIDTH) / 2;
 		add (paddle, xPaddle, yPaddle);
+	}
+	
+	private void setUpScore() {
+		GLabel label = new GLabel ("Lives: " + lives);
+		label.setFont("Helvetica, Font.BOLD, 18");
+		add (label, 10, yPaddle + PADDLE_HEIGHT + label.getAscent() + 2);
 	}
 	
 	public void mouseMoved (MouseEvent e) {
@@ -219,19 +226,19 @@ public class Breakout extends GraphicsProgram {
 			} 
 			if (getElementAt(ball1) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) { 
 				destroyBrick(getElementAt(ball1));
-			} else if (getElementAt(ball2) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
+			} else if (getElementAt(ball2) != ball && getElementAt(ball2) != null && getElementAt(ball2) != paddle) {
 				destroyBrick (getElementAt(ball2));
-			} else if (getElementAt(ball3) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
+			} else if (getElementAt(ball3) != ball && getElementAt(ball3) != null && getElementAt(ball3) != paddle) {
 				destroyBrick (getElementAt(ball3));
-			} else if (getElementAt(ball4) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
+			} else if (getElementAt(ball4) != ball && getElementAt(ball4) != null && getElementAt(ball4) != paddle) {
 				destroyBrick (getElementAt(ball4));
-			} else if (getElementAt(ball5) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
+			} else if (getElementAt(ball5) != ball && getElementAt(ball5) != null && getElementAt(ball5) != paddle) {
 				destroyBrick (getElementAt(ball5));
-			} else if (getElementAt(ball6) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
+			} else if (getElementAt(ball6) != ball && getElementAt(ball6) != null && getElementAt(ball6) != paddle) {
 				destroyBrick (getElementAt(ball6));
-			} else if (getElementAt(ball7) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
+			} else if (getElementAt(ball7) != ball && getElementAt(ball7) != null && getElementAt(ball7) != paddle) {
 				destroyBrick (getElementAt(ball7));
-			}	else if (getElementAt(ball8) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) {
+			}	else if (getElementAt(ball8) != ball && getElementAt(ball8) != null && getElementAt(ball8) != paddle) {
 				destroyBrick (getElementAt(ball8));
 			}
 		}
