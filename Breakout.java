@@ -230,7 +230,7 @@ public class Breakout extends GraphicsProgram {
 			if ( paddleBoard.contains(ball3) || paddleBoard.contains(ball4) || paddleBoard.contains(ball8)){
 				vy = -vy;
 			} 
-			if (getElementAt(ball1) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle && getElementAt(ball1) != paddleBoard) { 
+			/* if (getElementAt(ball1) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle && getElementAt(ball1) != paddleBoard) { 
 				destroyBrick(getElementAt(ball1));
 			} else if (getElementAt(ball2) != ball && getElementAt(ball2) != null && getElementAt(ball2) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball2));
@@ -242,7 +242,7 @@ public class Breakout extends GraphicsProgram {
 				destroyBrick (getElementAt(ball5));
 			} else if (getElementAt(ball6) != ball && getElementAt(ball6) != null && getElementAt(ball6) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball6));
-			}*/ else if (getElementAt(ball7) != ball && getElementAt(ball7) != null && getElementAt(ball7) != paddle && getElementAt(ball1) != paddleBoard) {
+			} else */ if (getElementAt(ball7) != ball && getElementAt(ball7) != null && getElementAt(ball7) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball7));
 			}	/*else if (getElementAt(ball8) != ball && getElementAt(ball8) != null && getElementAt(ball8) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball8));
