@@ -227,7 +227,7 @@ public class Breakout extends GraphicsProgram {
 			ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
 			ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
 			ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
-			if ( paddleBoard.contains(ball3) || paddleBoard.contains(ball4)){
+			if ( paddleBoard.contains(ball3) || paddleBoard.contains(ball4) || paddleBoard.contains(ball8)){
 				vy = -vy;
 			} 
 			if (getElementAt(ball1) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle && getElementAt(ball1) != paddleBoard) { 
