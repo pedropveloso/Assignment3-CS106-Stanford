@@ -133,8 +133,10 @@ public class Breakout extends GraphicsProgram {
 	
 	private void setUpPaddle() {
 		paddle = new GRect (PADDLE_WIDTH, PADDLE_HEIGHT);
+		paddleBoard = new GRect (PADDLE_WIDTH, 1);
 		paddle.setFilled(true);
 		xPaddle = (WIDTH - PADDLE_WIDTH) / 2;
+		add (paddleBoard, xPaddle, yPaddle);
 		add (paddle, xPaddle, yPaddle);
 	}
 	
@@ -148,14 +150,17 @@ public class Breakout extends GraphicsProgram {
 		if (e.getX() >= PADDLE_WIDTH / 2 && e.getX() <= WIDTH - PADDLE_WIDTH / 2) {
 			xPaddle = e.getX() - PADDLE_WIDTH / 2;
 			double dx = xPaddle - paddle.getX();
+			paddleBoard.move(dx, 0);
 			paddle.move(dx, 0);
 		} else if (e.getX() < PADDLE_WIDTH / 2) {
 			xPaddle = 0;
 			double dx = xPaddle - paddle.getX();
+			paddleBoard.move(dx, 0);
 			paddle.move(dx, 0);
 		} else {
 			xPaddle = WIDTH - PADDLE_WIDTH;
 			double dx = xPaddle - paddle.getX();
+			paddleBoard.move(dx, 0);
 			paddle.move(dx, 0);
 		}
 	}
@@ -202,16 +207,6 @@ public class Breakout extends GraphicsProgram {
 				}
 			}
 		} 
-		/*if (ball != null) {
-			ball1 = ball.getLocation();
-			ball2 = new GPoint(ball.getX()+ 2 * BALL_RADIUS, ball.getY());
-			ball3 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
-			ball4 = new GPoint(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
-			ball5 = new GPoint (ball.getX(), ball.getY() + BALL_RADIUS);
-			ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
-			ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
-			ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
-		}*/
 	}
 	
 	
@@ -225,24 +220,24 @@ public class Breakout extends GraphicsProgram {
 			ball6 = new GPoint(ball.getX() + 2 * BALL_RADIUS, ball.getY() + BALL_RADIUS);
 			ball7 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY());
 			ball8 = new GPoint(ball.getX() + BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
-			if ( paddle.contains(ball8)) {
+			if ( paddleBoard.contains(ball8)) {
 				vy = -vy;
 			} 
-			if (getElementAt(ball1) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle) { 
+			if (getElementAt(ball1) != ball && getElementAt(ball1) != null && getElementAt(ball1) != paddle && getElementAt(ball1) != paddleBoard) { 
 				destroyBrick(getElementAt(ball1));
-			} else if (getElementAt(ball2) != ball && getElementAt(ball2) != null && getElementAt(ball2) != paddle) {
+			} else if (getElementAt(ball2) != ball && getElementAt(ball2) != null && getElementAt(ball2) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball2));
-			} else if (getElementAt(ball3) != ball && getElementAt(ball3) != null && getElementAt(ball3) != paddle) {
+			} else if (getElementAt(ball3) != ball && getElementAt(ball3) != null && getElementAt(ball3) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball3));
-			} else if (getElementAt(ball4) != ball && getElementAt(ball4) != null && getElementAt(ball4) != paddle) {
+			} else if (getElementAt(ball4) != ball && getElementAt(ball4) != null && getElementAt(ball4) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball4));
-			} else if (getElementAt(ball5) != ball && getElementAt(ball5) != null && getElementAt(ball5) != paddle) {
+			} else if (getElementAt(ball5) != ball && getElementAt(ball5) != null && getElementAt(ball5) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball5));
-			} else if (getElementAt(ball6) != ball && getElementAt(ball6) != null && getElementAt(ball6) != paddle) {
+			} else if (getElementAt(ball6) != ball && getElementAt(ball6) != null && getElementAt(ball6) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball6));
-			} else if (getElementAt(ball7) != ball && getElementAt(ball7) != null && getElementAt(ball7) != paddle) {
+			} else if (getElementAt(ball7) != ball && getElementAt(ball7) != null && getElementAt(ball7) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball7));
-			}	else if (getElementAt(ball8) != ball && getElementAt(ball8) != null && getElementAt(ball8) != paddle) {
+			}	else if (getElementAt(ball8) != ball && getElementAt(ball8) != null && getElementAt(ball8) != paddle && getElementAt(ball1) != paddleBoard) {
 				destroyBrick (getElementAt(ball8));
 			}
 		}
@@ -282,7 +277,7 @@ public class Breakout extends GraphicsProgram {
 
 
 /* Private instance variables */
-	private GRect paddle;
+	private GRect paddle, paddleBoard;
 	private int xPaddle;
 	private int yPaddle = Y_PADDLE;
 	private int points = 0; //number of bricks destroyed
